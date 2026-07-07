@@ -2,9 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, system, probe-rs-rules, ... }:
+{
+  pkgs,
+  system,
+  probe-rs-rules,
+  ...
+}:
 
 {
+  # Enable Flakes
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
