@@ -5,5 +5,7 @@
     ../../common/common.nix
   ];
 
+  services.fwupd.enable = true;
+
   networking.hostName = "sulla";
 }

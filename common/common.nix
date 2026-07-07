@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, system, probe-rs-rules, ... }:
 
 {
   # Bootloader.
@@ -81,7 +81,10 @@
   # Import submodules
   imports = [
     (import ./programs.nix { inherit pkgs; })
+    probe-rs-rules.nixosModules.${system}.default
   ];
+
+  hardware.probe-rs.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

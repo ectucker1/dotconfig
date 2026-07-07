@@ -6,14 +6,30 @@
     pkgs.fastfetch
     pkgs.discord
     pkgs.signal-desktop
+    pkgs.obsidian
+    pkgs.numbat
+    pkgs.usbutils
+
+    # Video Players & Encoders
+    pkgs.vlc
+    pkgs.ffmpeg-headless
+    pkgs.handbrake
+
+    # Visual Art
+    pkgs.blender
+    pkgs.aseprite
+    pkgs.krita
 
     # Common Programming Tools
     pkgs.git-credential-manager
     pkgs.git-lfs
     pkgs.just
+    pkgs.ghostty
     pkgs.zed-editor
     pkgs.claude-code
     pkgs.godot_4_7
+    pkgs.arduino-ide
+    pkgs.python3
 
     # Language Servers
     pkgs.nil
