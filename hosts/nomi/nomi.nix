@@ -19,4 +19,18 @@
     font = null;
     splashImage = null;
   };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Nvidia RTX 3070 proprietary driver.
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics.enable = true;
+  hardware.nvidia = {
+    # Required for Wayland.
+    modesetting.enable = true;
+    # Open driver is recommended for current-gen cards.
+    open = true;
+    nvidiaSettings = true;
+  };
 }
