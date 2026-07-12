@@ -5,6 +5,7 @@
 {
   pkgs,
   system,
+  rust-overlay,
   probe-rs-rules,
   ...
 }:
@@ -66,7 +67,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -77,12 +78,14 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.groups.plugdev = { };
   users.users."ella" = {
     isNormalUser = true;
     description = "Ella Tucker";
     extraGroups = [
       "networkmanager"
       "wheel"
+      "plugdev"
     ];
   };
 
@@ -91,11 +94,20 @@
 
   # Import submodules
   imports = [
-    (import ./programs.nix { inherit pkgs; })
+    (import ./programs.nix { inherit pkgs rust-overlay; })
     probe-rs-rules.nixosModules.${system}.default
   ];
 
   hardware.probe-rs.enable = true;
+
+  # The probe-rs rules grant access via `uaccess` (a per-session ACL), which
+  # fails when the probe is enumerated before login (the ACL goes to the GDM
+  # greeter, leaving normal users read-only). Add a static group-based rule so
+  # members of `plugdev` always have rw access regardless of the active session.
+  services.udev.extraRules = ''
+    # Raspberry Pi Debug Probe (CMSIS-DAP)
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", MODE="0660", GROUP="plugdev"
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

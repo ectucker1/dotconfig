@@ -7,6 +7,10 @@
       url = "github:NixOS/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     probe-rs-rules = {
       url = "github:jneem/probe-rs-rules";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,13 +21,19 @@
     {
       nixpkgs,
       nixos-hardware,
+      rust-overlay,
       probe-rs-rules,
       ...
     }:
     let
       system = "x86_64-linux";
       specialArgs = {
-        inherit system nixos-hardware probe-rs-rules;
+        inherit
+          system
+          nixos-hardware
+          rust-overlay
+          probe-rs-rules
+          ;
       };
     in
     {

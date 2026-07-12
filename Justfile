@@ -5,10 +5,10 @@ dry-run hostname:
   nixos-rebuild dry-activate --flake .#{{hostname}} --sudo
 
 search package:
-  nix --extra-experimental-features nix-command --extra-experimental-features flakes search nixpkgs {{package}}
+  nix --extra-experimental-features 'nix-command flakes' search nixpkgs {{package}}
 
 update:
-  nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+  nix --extra-experimental-features 'nix-command flakes' flake update
 
 clean:
   # remove all generations older than 7 days
