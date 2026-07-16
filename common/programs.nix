@@ -12,6 +12,7 @@
     pkgs.obsidian
     pkgs.numbat
     pkgs.usbutils
+    pkgs.chromium
 
     # Video Players & Encoders
     pkgs.vlc
