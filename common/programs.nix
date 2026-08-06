@@ -37,6 +37,10 @@
     pkgs.python3
     pkgs.gcc
     (pkgs.rust-bin.stable.latest.default.override {
+      targets = [
+        "thumbv6m-none-eabi"
+        "wasm32-unknown-unknown"
+      ];
       extensions = [
         "rust-analyzer"
         "rust-src"
