@@ -1,6 +1,15 @@
-{ pkgs, rust-overlay, ... }: {
+{
+  pkgs,
+  rust-overlay,
+  llm-agents,
+  ...
+}:
+{
   # Include packages from rust overlay
-  nixpkgs.overlays = [ rust-overlay.overlays.default ];
+  nixpkgs.overlays = [
+    rust-overlay.overlays.default
+    llm-agents.overlays.shared-nixpkgs
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -31,7 +40,7 @@
     pkgs.just
     pkgs.ghostty
     pkgs.zed-editor
-    pkgs.claude-code
+    pkgs.llm-agents.claude-code
     pkgs.godot_4_7
     pkgs.arduino-ide
     pkgs.python3

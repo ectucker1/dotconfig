@@ -15,6 +15,10 @@
       url = "github:jneem/probe-rs-rules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +27,7 @@
       nixos-hardware,
       rust-overlay,
       probe-rs-rules,
+      llm-agents,
       ...
     }:
     let
@@ -33,6 +38,7 @@
           nixos-hardware
           rust-overlay
           probe-rs-rules
+          llm-agents
           ;
       };
     in

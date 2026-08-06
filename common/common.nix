@@ -3,9 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 {
-  pkgs,
   system,
-  rust-overlay,
   probe-rs-rules,
   ...
 }:
@@ -115,7 +113,7 @@
 
   # Import submodules
   imports = [
-    (import ./programs.nix { inherit pkgs rust-overlay; })
+    ./programs.nix
     probe-rs-rules.nixosModules.${system}.default
   ];
 
