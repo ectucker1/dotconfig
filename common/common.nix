@@ -49,6 +49,27 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  programs.dconf.profiles.user.databases = [
+    {
+      lockAll = true;
+      settings = {
+        # Skip welcome dialog
+        # After updating gnome, bump version to output from dconf dump /
+        "org/gnome/shell" = {
+          welcome-dialog-last-shown-version = "50.2";
+        };
+        # Use 12 hour time
+        "org/gnome/desktop/interface" = {
+          clock-format = "12h";
+        };
+        # Use corner-based alt-click
+        "org/gnome/desktop/peripherals/touchpad" = {
+          click-method = "areas";
+        };
+      };
+    }
+  ];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
