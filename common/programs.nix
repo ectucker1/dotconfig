@@ -60,6 +60,11 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install steam
+  programs.steam = {
+    enable = true;
+  };
+
   # Enable Git LFS and GCM
   programs.git = {
     enable = true;
