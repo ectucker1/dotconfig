@@ -33,6 +33,7 @@
     pkgs.aseprite
     pkgs.krita
     pkgs.reaper
+    pkgs.fritzing
 
     # Common Programming Tools
     pkgs.git-credential-manager
