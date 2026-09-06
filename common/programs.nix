@@ -34,6 +34,8 @@
     pkgs.krita
     pkgs.reaper
     pkgs.fritzing
+    pkgs.cardinal
+    pkgs.surge-xt
 
     # Common Programming Tools
     pkgs.git-credential-manager
@@ -60,6 +62,7 @@
     })
     pkgs.pnpm
     pkgs.nodejs
+    pkgs.ansible
 
     # Language Servers
     pkgs.nil
