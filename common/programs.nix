@@ -36,6 +36,7 @@
     pkgs.fritzing
     pkgs.cardinal
     pkgs.surge-xt
+    pkgs.qpwgraph
 
     # Common Programming Tools
     pkgs.git-credential-manager
@@ -69,6 +70,12 @@
     pkgs.nixd
     pkgs.package-version-server
   ];
+
+  programs.nix-ld.enable = true;
+
+  programs.direnv.enable = true;
+
+  services.flatpak.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
