@@ -78,6 +78,11 @@
     enable = true;
   };
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   # Enable Git LFS and GCM
   programs.git = {
     enable = true;
