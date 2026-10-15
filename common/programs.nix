@@ -41,8 +41,9 @@
     # Common Programming Tools
     pkgs.git-credential-manager
     pkgs.git-lfs
+    pkgs.github-desktop
+    pkgs.gh
     pkgs.just
-    pkgs.ghostty
     pkgs.zed-editor
     pkgs.llm-agents.claude-code
     pkgs.godot_4_7
