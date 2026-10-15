@@ -22,10 +22,12 @@
     pkgs.numbat
     pkgs.usbutils
     pkgs.chromium
+    pkgs.spotify
 
     # Video Players & Encoders
     pkgs.vlc
     pkgs.ffmpeg-headless
+    pkgs.imagemagick
     pkgs.handbrake
 
     # Visual Art
